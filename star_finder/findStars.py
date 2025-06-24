@@ -2,14 +2,15 @@ import time
 import cv2
 import numpy as np
 
-def find(params):
+# def find(params):
+def find(image, threshLower=80, gKernel=3):
 	
-	img = cv2.imread(params.image,0) #import as 3 channel color
+	img = cv2.imread(image,0) #import as 3 channel color
 
 	#blur = cv2.medianBlur(newImg,3)
-	blur = cv2.GaussianBlur(img, (params.gKernel, params.gKernel), 0)
+	blur = cv2.GaussianBlur(img, (gKernel, gKernel), 0)
 
-	_, thresh = cv2.threshold(blur, params.threshLower, 255, cv2.THRESH_BINARY)#apply thresh
+	_, thresh = cv2.threshold(blur, threshLower, 255, cv2.THRESH_BINARY)#apply thresh
 
 	edges = cv2.Canny(thresh,100,200)#find canny edges
 

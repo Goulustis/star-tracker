@@ -1,5 +1,5 @@
-import findStars
-import showStars
+import star_finder.findStars as findStars
+import star_finder.showStars as showStars
 import cv2
 
 
@@ -10,7 +10,9 @@ class starFindArgs: #current params for star finding
 	
 e1 = cv2.getTickCount() #for finding execution time
 
-starCoords = findStars.find(starFindArgs) #run star finder, returns star coords
+starCoords = findStars.find(image='test_images/stars2.jpg',
+							threshLower=80,
+							gKernel=3) #run star finder, returns star coords
 
 e2 = cv2.getTickCount() #for finding execution time
 
