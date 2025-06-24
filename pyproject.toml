@@ -1,0 +1,10 @@
+[project]
+name = "devstrat"
+version = "0.1"
+dependencies = [
+    "opencv-python",
+    "matplotlib"
+]
+
+[tool.setuptools.packages.find]
+include = ["star_finder"]
