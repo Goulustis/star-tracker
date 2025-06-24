@@ -1,5 +1,5 @@
 [project]
-name = "devstrat"
+name = "star_finder"
 version = "0.1"
 dependencies = [
     "opencv-python",
