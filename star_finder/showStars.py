@@ -3,9 +3,9 @@ import cv2
 from matplotlib import pyplot as plt #for displaying image
 import matplotlib.animation as animation #for switching image
 
-def show(params):
+def show(image, coords, ret_draw=False):
 
-	img = cv2.imread(params.image,-1) #import as 3 channel color
+	img = cv2.imread(image,-1) #import as 3 channel color
 	
 	drawImg = img.copy() #copy of image to be draw on
 
@@ -17,8 +17,11 @@ def show(params):
 	fig, ax = plt.subplots(figsize=(21, 12), dpi=100) #this allows tight layout, .figure doesn't
 	fig.tight_layout() #tighter fit to plot window
 
-	for i in range(len(params.coords)): #draw points on blank image
-		cv2.circle(drawImg,(params.coords[i][0], params.coords[i][1]),4,(255,0,0),0)
+	for i in range(len(coords)): #draw points on blank image
+		cv2.circle(drawImg,(coords[i][0], coords[i][1]),4,(255,0,0),0)
+	
+	if ret_draw:
+		return drawImg
 
 	im = plt.imshow(img, animated=True) #show image, prep for animation
 
