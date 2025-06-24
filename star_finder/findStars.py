@@ -13,7 +13,7 @@ def find(params):
 
 	edges = cv2.Canny(thresh,100,200)#find canny edges
 
-	_, contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)#find contours
+	contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)#find contours
 
 	coords = [] #array to hold star point coords
 
