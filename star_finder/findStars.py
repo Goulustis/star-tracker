@@ -29,6 +29,6 @@ def find(image, threshLower=80, gKernel=3):
 
 	#everything after here is just for viewing and debug
 
-	return np.array(coords)
+	return np.unique(coords, axis=0)
 
 
